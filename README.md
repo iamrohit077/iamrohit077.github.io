@@ -56,50 +56,6 @@ h1 {
     color: #ff4da6;
 }
 
-/* Photos */
-.photo-section {
-    margin: 30px 0;
-}
-
-/* Romantic Animations */
-@keyframes breathe {
-    0% { transform: scale(1); }
-    50% { transform: scale(1.035); }
-    100% { transform: scale(1); }
-}
-
-@keyframes sway {
-    0% { transform: rotate(-0.4deg); }
-    50% { transform: rotate(0.4deg); }
-    100% { transform: rotate(-0.4deg); }
-}
-
-@keyframes loveGlow {
-    0% { box-shadow: 0 0 25px rgba(255, 0, 120, 0.4); }
-    50% { box-shadow: 0 0 55px rgba(255, 0, 180, 0.9); }
-    100% { box-shadow: 0 0 25px rgba(255, 0, 120, 0.4); }
-}
-
-.main-photo img {
-    width: 100%;
-    max-width: 520px;
-    border-radius: 22px;
-    animation:
-        breathe 6s ease-in-out infinite,
-        sway 8s ease-in-out infinite,
-        loveGlow 4.5s ease-in-out infinite;
-}
-
-.second-photo img {
-    width: 260px;
-    margin-top: 25px;
-    border-radius: 20px;
-    animation:
-        breathe 7s ease-in-out infinite reverse,
-        sway 9s ease-in-out infinite,
-        loveGlow 5.5s ease-in-out infinite;
-}
-
 /* Text */
 .typewriter {
     font-size: 20px;
@@ -169,12 +125,34 @@ button:hover {
     from { transform: scale(0); opacity: 1; }
     to { transform: scale(2); opacity: 0; }
 }
+
+/* Happy Cat Reveal */
+.cat-love {
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%) scale(0);
+    width: 260px;
+    z-index: 30;
+    animation: catPop 1.2s ease forwards;
+}
+
+.cat-love img {
+    width: 100%;
+    border-radius: 20px;
+    box-shadow: 0 0 40px rgba(255, 0, 140, 0.9);
+}
+
+@keyframes catPop {
+    0% { transform: translate(-50%, -50%) scale(0); opacity: 0; }
+    60% { transform: translate(-50%, -50%) scale(1.1); opacity: 1; }
+    100% { transform: translate(-50%, -50%) scale(1); }
+}
 </style>
 </head>
 
 <body>
 
-<!-- Music -->
 <audio id="bgMusic" loop>
   <source src="https://www.bensound.com/bensound-music/bensound-romantic.mp3" type="audio/mp3">
 </audio>
@@ -182,18 +160,7 @@ button:hover {
 <div class="stars" id="stars"></div>
 
 <div class="card">
-    <h1>My Forever Puku ❤️</h1>
-
-    <!-- NEW PHOTOS -->
-    <div class="photo-section">
-        <div class="main-photo">
-            <img src="best.jpeg" alt="Our Night Hug">
-        </div>
-        <div class="second-photo">
-            <img src="best2.jpeg" alt="Our Cute Moment">
-        </div>
-    </div>
-
+    <h1> Happy Valentine’s Day <br><br> My Forever Puku ❤️</h1>
     <div class="typewriter" id="typeText"></div>
     <button onclick="openProposal()">💍 Open My Heart 💍</button>
 </div>
@@ -202,21 +169,20 @@ button:hover {
     <h2>
     I love you soo much mero puku ❤️<br><br>
     Hami dubai lai thaxa hami ek arka lai kati dherai maya garxam 🥰<br><br>
-    Kaile misunderstanding hunxa tara at the end hami dubai lai ek arka chahinxa.<br><br>
-    You are my forever 😭❤️
+    kaile kei bich bich ma jhadaga hunxa misunderstanding hunxa tara at the end as always hami dubai lai ek arka chahinxa...<br><br>
+    I love you more than anything😭❤️ <br><br>
+    Will you be my Valentine? 💕✨
     </h2>
     <button class="yes-btn" onclick="yesAnswer()">Forever Yes ❤️</button>
     <button class="no-btn" onmouseover="moveButton()">No 😅</button>
 </div>
 
 <script>
-/* iOS Audio Fix */
 document.body.addEventListener("click", () => {
     document.getElementById("bgMusic").play();
 }, { once: true });
 
-/* Typewriter */
-const message = "In every universe, I would still choose you. You are my peace, my home, my forever.";
+const message = "No matter how many worlds exist, my heart will always belong to you Puku 🥰❤️ You are my forever ❤️";
 let i = 0;
 function typeEffect() {
     if (i < message.length) {
@@ -226,12 +192,10 @@ function typeEffect() {
 }
 typeEffect();
 
-/* Proposal */
 function openProposal() {
     document.getElementById("proposalBox").style.display = "block";
 }
 
-/* Yes Celebration */
 function yesAnswer() {
     for (let i = 0; i < 35; i++) {
         const heart = document.createElement("div");
@@ -242,16 +206,17 @@ function yesAnswer() {
         document.body.appendChild(heart);
         setTimeout(() => heart.remove(), 1000);
     }
+
+    const cat = document.getElementById("catLove");
+    cat.style.display = "block";
 }
 
-/* No Button Escape */
 function moveButton() {
     const btn = document.querySelector(".no-btn");
     btn.style.left = Math.random() * 300 + "px";
     btn.style.top = Math.random() * 150 + "px";
 }
 
-/* Stars */
 for (let i = 0; i < 120; i++) {
     const star = document.createElement("div");
     star.className = "star";
@@ -260,7 +225,6 @@ for (let i = 0; i < 120; i++) {
     document.getElementById("stars").appendChild(star);
 }
 
-/* Floating Hearts */
 setInterval(() => {
     const heart = document.createElement("div");
     heart.className = "heart";
