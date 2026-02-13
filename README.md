@@ -9,7 +9,7 @@
 body {
     margin: 0;
     padding: 0;
-    background: radial-gradient(circle at top, #1a001a, #000000);
+    background: radial-gradient(circle at top, #1a001a, #000);
     font-family: 'Segoe UI', sans-serif;
     overflow-x: hidden;
     color: white;
@@ -42,13 +42,13 @@ body {
     margin-top: 80px;
     background: rgba(255, 255, 255, 0.08);
     padding: 40px;
-    border-radius: 20px;
-    backdrop-filter: blur(10px);
+    border-radius: 22px;
+    backdrop-filter: blur(12px);
     width: 90%;
-    max-width: 700px;
+    max-width: 720px;
     margin-left: auto;
     margin-right: auto;
-    box-shadow: 0 0 30px rgba(255, 0, 100, 0.5);
+    box-shadow: 0 0 35px rgba(255, 0, 120, 0.6);
 }
 
 h1 {
@@ -57,64 +57,71 @@ h1 {
 }
 
 /* Photos */
-.photo-section { margin: 25px 0; }
-
-.main-photo img,
-.second-photo img {
-    width: 100%;
-    border-radius: 20px;
-    max-width: 500px;
-    transition: transform 0.5s ease;
+.photo-section {
+    margin: 30px 0;
 }
 
-/* Unique Auto Animations */
-@keyframes floatPhoto {
-    0% { transform: translateY(0) scale(1); }
-    50% { transform: translateY(-14px) scale(1.04); }
-    100% { transform: translateY(0) scale(1); }
+/* Romantic Animations */
+@keyframes breathe {
+    0% { transform: scale(1); }
+    50% { transform: scale(1.035); }
+    100% { transform: scale(1); }
 }
-@keyframes glowPulse {
-    0% { box-shadow: 0 0 25px rgba(255,0,120,0.5); }
-    50% { box-shadow: 0 0 50px rgba(255,0,180,0.9); }
-    100% { box-shadow: 0 0 25px rgba(255,0,120,0.5); }
+
+@keyframes sway {
+    0% { transform: rotate(-0.4deg); }
+    50% { transform: rotate(0.4deg); }
+    100% { transform: rotate(-0.4deg); }
 }
-@keyframes kenBurns {
-    from { transform: scale(1); }
-    to { transform: scale(1.08); }
+
+@keyframes loveGlow {
+    0% { box-shadow: 0 0 25px rgba(255, 0, 120, 0.4); }
+    50% { box-shadow: 0 0 55px rgba(255, 0, 180, 0.9); }
+    100% { box-shadow: 0 0 25px rgba(255, 0, 120, 0.4); }
 }
 
 .main-photo img {
-    animation: floatPhoto 6s ease-in-out infinite,
-               glowPulse 4s infinite,
-               kenBurns 14s alternate infinite;
+    width: 100%;
+    max-width: 520px;
+    border-radius: 22px;
+    animation:
+        breathe 6s ease-in-out infinite,
+        sway 8s ease-in-out infinite,
+        loveGlow 4.5s ease-in-out infinite;
 }
 
 .second-photo img {
-    max-width: 260px;
-    margin-top: 20px;
-    animation: floatPhoto 7s ease-in-out infinite reverse,
-               glowPulse 5s infinite;
+    width: 260px;
+    margin-top: 25px;
+    border-radius: 20px;
+    animation:
+        breathe 7s ease-in-out infinite reverse,
+        sway 9s ease-in-out infinite,
+        loveGlow 5.5s ease-in-out infinite;
 }
 
 /* Text */
 .typewriter {
     font-size: 20px;
-    margin-top: 20px;
+    margin-top: 25px;
     min-height: 80px;
 }
 
+/* Buttons */
 button {
-    padding: 12px 25px;
+    padding: 12px 26px;
     border: none;
     background: linear-gradient(45deg, #ff0066, #ff4da6);
     color: white;
     font-size: 16px;
-    border-radius: 25px;
+    border-radius: 30px;
     cursor: pointer;
-    margin-top: 20px;
+    margin-top: 22px;
     transition: 0.4s;
 }
-button:hover { transform: scale(1.1); }
+button:hover {
+    transform: scale(1.08);
+}
 
 /* Popup */
 .popup {
@@ -125,11 +132,11 @@ button:hover { transform: scale(1.1); }
     transform: translate(-50%, -50%);
     background: #1a001a;
     padding: 30px;
-    border-radius: 20px;
-    box-shadow: 0 0 40px #ff0066;
+    border-radius: 22px;
+    box-shadow: 0 0 45px #ff0066;
     z-index: 20;
     width: 90%;
-    max-width: 600px;
+    max-width: 620px;
 }
 
 .popup h2 {
@@ -141,7 +148,7 @@ button:hover { transform: scale(1.1); }
 .yes-btn { background: #ff0066; }
 .no-btn { background: grey; position: relative; }
 
-/* Hearts */
+/* Floating Hearts */
 .heart {
     position: absolute;
     font-size: 20px;
@@ -177,12 +184,13 @@ button:hover { transform: scale(1.1); }
 <div class="card">
     <h1>My Forever Puku ❤️</h1>
 
+    <!-- NEW PHOTOS -->
     <div class="photo-section">
         <div class="main-photo">
-            <img src="best.jpeg" alt="Memory">
+            <img src="best.jpeg" alt="Our Night Hug">
         </div>
         <div class="second-photo">
-            <img src="best2.jpeg" alt="Selfie">
+            <img src="best2.jpeg" alt="Our Cute Moment">
         </div>
     </div>
 
@@ -195,7 +203,7 @@ button:hover { transform: scale(1.1); }
     I love you soo much mero puku ❤️<br><br>
     Hami dubai lai thaxa hami ek arka lai kati dherai maya garxam 🥰<br><br>
     Kaile misunderstanding hunxa tara at the end hami dubai lai ek arka chahinxa.<br><br>
-    We are made for each other. I love you more than anything 😭❤️
+    You are my forever 😭❤️
     </h2>
     <button class="yes-btn" onclick="yesAnswer()">Forever Yes ❤️</button>
     <button class="no-btn" onmouseover="moveButton()">No 😅</button>
@@ -208,7 +216,7 @@ document.body.addEventListener("click", () => {
 }, { once: true });
 
 /* Typewriter */
-const message = "In every universe, I would still choose you. You are my peace, my chaos, my forever.";
+const message = "In every universe, I would still choose you. You are my peace, my home, my forever.";
 let i = 0;
 function typeEffect() {
     if (i < message.length) {
@@ -225,7 +233,7 @@ function openProposal() {
 
 /* Yes Celebration */
 function yesAnswer() {
-    for (let i = 0; i < 30; i++) {
+    for (let i = 0; i < 35; i++) {
         const heart = document.createElement("div");
         heart.className = "celebrate";
         heart.innerHTML = "💖";
@@ -261,17 +269,6 @@ setInterval(() => {
     document.body.appendChild(heart);
     setTimeout(() => heart.remove(), 6000);
 }, 500);
-
-/* Device Tilt Effect */
-if (window.DeviceOrientationEvent) {
-    window.addEventListener("deviceorientation", e => {
-        const x = e.gamma / 30;
-        const y = e.beta / 30;
-        document.querySelectorAll("img").forEach(img => {
-            img.style.transform = `rotateY(${x}deg) rotateX(${y}deg) scale(1.05)`;
-        });
-    });
-}
 </script>
 
 </body>
